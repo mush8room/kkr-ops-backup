@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "wallet-api.fullname" . }}-common
+data:
+ chain-id: {{ default "" .Values.config.common.chain-id | quote }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "wallet-api.fullname" . }}-aws
+data:
+  aws-wallet-create-notification-queue-name: {{ default "" .Values.config.aws.wallet-create-notification-queue-name | quote }}
+  aws-wallet-create-notification-queue-url: {{ default "" .Values.config.aws.wallet-create-notification-queue-url | quote }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "wallet-api.fullname" . }}-jwt
+data:
+ jwt-expires-in: {{ default "" .Values.config.jwt.expires-in | quote }}
+
