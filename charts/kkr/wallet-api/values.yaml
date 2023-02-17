@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: 293315485843.dkr.ecr.ap-northeast-2.amazonaws.com/kkr/wallet-api:0.0.3-96bbd7f-0
+  repository: 293315485843.dkr.ecr.ap-northeast-2.amazonaws.com/kkr/wallet-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "0.0.3-96bbd7f-0"
 
 imagePullSecrets: []
 nameOverride: ""
