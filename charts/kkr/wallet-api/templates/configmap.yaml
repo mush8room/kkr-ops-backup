@@ -3,22 +3,22 @@ kind: ConfigMap
 metadata:
   name: {{ include "wallet-api.fullname" . }}-common
 data:
- chain-id: {{ default "" .Values.config.common.chain-id | quote }}
- ethereum-backend-host: {{ default "" .Values.config.common.ethereum-backend-host | quote }}
- polygon-backend-host: {{ default "" .Values.config.common.polygon-backend-host | quote }}
+ chain-id: {{ default "" .Values.config.common.chainId | quote }}
+ ethereum-backend-host: {{ default "" .Values.config.common.ethereumBackendHost | quote }}
+ polygon-backend-host: {{ default "" .Values.config.common.polygonBackendHost | quote }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "wallet-api.fullname" . }}-aws
 data:
-  aws-wallet-create-notification-queue-name: {{ default "" .Values.config.aws.wallet-create-notification-queue-name | quote }}
-  aws-wallet-create-notification-queue-url: {{ default "" .Values.config.aws.wallet-create-notification-queue-url | quote }}
+  aws-wallet-create-notification-queue-name: {{ default "" .Values.config.aws.walletCreateNotificationQueueName | quote }}
+  aws-wallet-create-notification-queue-url: {{ default "" .Values.config.aws.walletCreateNotificationQueueUrl | quote }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "wallet-api.fullname" . }}-jwt
 data:
- jwt-expires-in: {{ default "" .Values.config.jwt.expires-in | quote }}
+ jwt-expires-in: {{ default "" .Values.config.jwt.expiresIn | quote }}
 

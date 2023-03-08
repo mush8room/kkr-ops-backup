@@ -35,47 +35,47 @@ spec:
           env:
             - name: DB_HOST
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: db-host
-                  name: {{ include "wallet-api.fullname" . }}-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: DB_USER
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: db-user
-                  name: {{ include "wallet-api.fullname" . }}-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: DB_PASSWORD
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: db-password
-                  name: {{ include "wallet-api.fullname" . }}-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: DB_DATABASE
               valueFrom:
-                secreteKeyRef:
-                  key: db-password
-                  name: {{ include "wallet-api.fullname" . }}-database
+                secretKeyRef:
+                  key: db-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: DB_PORT
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: db-port
-                  name: {{ include "wallet-api.fullname" . }}-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: DB_ENGINE
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: db-engine
-                  name: {{ include "wallet-api.fullname" . }}-database
+                  name: {{ include "wallet-api.fullname" . }}-db
             - name: AWS_REGION
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: aws-region
                   name: {{ include "wallet-api.fullname" . }}-aws
             - name: AWS_ACCESS_KEY
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: aws-access-key
                   name: {{ include "wallet-api.fullname" . }}-aws
             - name: AWS_SECRET_KEY
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: aws-secret-key
                   name: {{ include "wallet-api.fullname" . }}-aws
             - name: AWS_WALLET_CREATE_NOTIFICATION_QUEUE_NAME
@@ -90,7 +90,7 @@ spec:
                   name: {{ include "wallet-api.fullname" . }}-aws
             - name: OCTET_API_TOKEN
               valueFrom:
-                secreteKeyRef:
+                secretKeyRef:
                   key: octet-api-token
                   name: {{ include "wallet-api.fullname" . }}-octet
             - name: OCTET_BASE_URL

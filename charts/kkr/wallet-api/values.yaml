@@ -16,14 +16,14 @@ fullnameOverride: ""
 
 config:
   common:
-    chain-id: ""
-    ethereum-backend-host: ""
-    polygon-backend-host: ""
+    chainId: ""
+    ethereumBackendHost: ""
+    polygonBackendHost: ""
   aws:
-    wallet-create-notification-queue-name: ""
-    wallet-create-notification-queue-url: ""
+    walletCreateNotificationQueueName: ""
+    walletCreateNotificationQueueUrl: ""
   jwt:
-    expires-in: "180"
+    expiresIn: "180"
 secret:
   db:
     host: ""
@@ -34,20 +34,23 @@ secret:
     engine: ""
   aws:
     region: ""
-    access-key: ""
-    secret-key: ""
+    accessKey: ""
+    secretKey: ""
   octet:
-    api-token: ""
-    base-url: ""
-    wallet-id: ""
-    recovery-pin: ""
+    apiToken: ""
+    baseUrl: ""
+    walletId: ""
+    recoveryPin: ""
   jwt:
     secret: ""
-    auth-secret: ""
+    authSecret: ""
   encoding:
-    hash-ids-key: ""
-    rsa-private-key: ""
-    rsa-public-key: ""
+    hashIdsKey: ""
+    rsaPrivateKey: ""
+    rsaPublicKey: ""
+  alchemy:
+    apiKey: ""
+    host: ""
 
 
 
