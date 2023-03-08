@@ -4,6 +4,8 @@ metadata:
   name: {{ include "wallet-api.fullname" . }}-common
 data:
  chain-id: {{ default "" .Values.config.common.chain-id | quote }}
+ ethereum-backend-host: {{ default "" .Values.config.common.ethereum-backend-host | quote }}
+ polygon-backend-host: {{ default "" .Values.config.common.polygon-backend-host | quote }}
 ---
 apiVersion: v1
 kind: ConfigMap

@@ -17,11 +17,13 @@ fullnameOverride: ""
 config:
   common:
     chain-id: ""
+    ethereum-backend-host: ""
+    polygon-backend-host: ""
   aws:
     wallet-create-notification-queue-name: ""
     wallet-create-notification-queue-url: ""
   jwt:
-    expires-in: "3"
+    expires-in: "180"
 secret:
   db:
     host: ""

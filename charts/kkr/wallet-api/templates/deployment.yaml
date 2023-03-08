@@ -150,8 +150,18 @@ spec:
                   name: {{ include "wallet-api.fullname" . }}-encoding
             - name: CHAIN_ID
               valueFrom:
-                secretKeyRef:
+               configMapKeyRef:
                   key: chain-id
+                  name: {{ include "wallet-api.fullname" . }}-common
+            - name: ETHEREUM_BACKEND_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: ethereum-backend-host
+                  name: {{ include "wallet-api.fullname" . }}-common
+            - name: POLYGON_BACKEND_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: polygon-backend-host
                   name: {{ include "wallet-api.fullname" . }}-common
           ports:
             - name: http
