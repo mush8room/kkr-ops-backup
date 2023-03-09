@@ -18,8 +18,9 @@ metadata:
   name: {{ $fullName }}
   labels:
     {{- include "wallet-api.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
+    konghq.com/plugins: {{ $fullName }}-cors,{{ $fullName }}-validate-auth-server-token
+  {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:

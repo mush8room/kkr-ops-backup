@@ -24,6 +24,10 @@ config:
     walletCreateNotificationQueueUrl: ""
   jwt:
     expiresIn: "180"
+  oauth:
+    cliendId: "client_id"
+    clientSecret: "client_secret"
+    tokenIntrospectUrl: ""
 secret:
   db:
     host: ""
