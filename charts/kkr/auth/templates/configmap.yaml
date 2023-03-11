@@ -25,6 +25,7 @@ data:
   identity-danal-api-base: {{ default "" .Values.config.identityDanalApiBase | quote }}
   identity-danal-target-url: {{ default "" .Values.config.identityDanalTargetUrl | quote }}
   identity-user-danal-target-url: {{ default "" .Values.config.identityUserDanalTargetUrl | quote }}
+  identity-reset-pin-danal-target-url: {{ default "" .Values.config.identityResetPinDanalTargetUrl | quote }}
   identity-oauth-client-id: {{ default "" .Values.config.identityOauthClientId | quote }}
   identity-valid-redirect-urls: {{ default "" .Values.config.identityValidRedirectUrls | quote }}
   identity-home-page: {{ default "" .Values.config.identityHomePage | quote }}

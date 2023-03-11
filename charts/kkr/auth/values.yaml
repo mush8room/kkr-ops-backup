@@ -27,7 +27,8 @@ config:
   identity:
     identityDanalApiBase: ""
     identityDanalTargetUrl: ""
-    identityDanalUserTargetUrl: ""
+    identityUserDanalTargetUrl: ""
+    identityResetPinDanalTargetUrl: ""
     identityOauthClientId: ""
     identityValidRedirectUrls: ""
     identityHomePage: ""

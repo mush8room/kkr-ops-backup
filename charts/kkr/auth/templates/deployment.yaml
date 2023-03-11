@@ -155,6 +155,11 @@ spec:
                 configMapKeyRef:
                   key: identity-user-danal-target-url
                   name: {{ include "auth.fullname" . }}-identity
+            - name: IDENTITY_RESET_PIN_DANAL_TARGET_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: identity-reset-pin-danal-target-url
+                  name: {{ include "auth.fullname" . }}-identity
             - name: IDENTITY_VALID_REDIRECT_URLS
               valueFrom:
                 configMapKeyRef:
