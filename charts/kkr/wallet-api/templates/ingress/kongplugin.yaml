@@ -1,15 +1,11 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "wallet-api.fullname" . -}}
-{{- $corsPluginName := printf "%s-%s" $fullName "cors" }}
-{{- $validateAuthServerTokenPluginName := printf "%s-%s" $fullName "validate-auth-server-token" }}
-{{- $namespace := .Release.Namespace -}}
 apiVersion: configuration.konghq.com/v1
 config:
   origins:
   - '*'
 kind: KongPlugin
 metadata:
-  name: {{ trunc 63 $corsPluginName }}
+  name: {{ include "wallet-api.cors" . }}
 plugin: cors
 ---
 apiVersion: configuration.konghq.com/v1
@@ -24,6 +20,6 @@ config:
 
 kind: KongPlugin
 metadata:
-  name: {{ trunc 63 $validateAuthServerTokenPluginName }}
+  name: {{ include "wallet-api.validateAuthServerToken" . }}
 plugin: oauth2-token-introspection-request
 {{- end }}

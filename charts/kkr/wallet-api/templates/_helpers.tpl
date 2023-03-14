@@ -60,3 +60,19 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create kongplugin name of cors
+*/}}
+{{- define "wallet-api.cors" -}}
+{{ $fullName := include "wallet-api.fullname" . }}
+{{- printf "%s-%s" $fullName "cors" | trunc 63 }}
+{{- end }}
+
+{{/*
+Create kongplugin name of validate auth server token
+*/}}
+{{- define "wallet-api.validateAuthServerToken" -}}
+{{ $fullName := include "wallet-api.fullname" . }}
+{{- printf "%s-%s" $fullName "validate-auth-server-token" | trunc 63 }}
+{{- end }}
