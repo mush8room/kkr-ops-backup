@@ -17,8 +17,8 @@ fullnameOverride: ""
 config:
   aws:
     newAccountReportQueueUrl: ""
-    walletCreateNotificationQeueName: ""
-    walletCreateNotificationQeueUrl: ""
+    walletCreateNotificationQueueName: ""
+    walletCreateNotificationQueueUrl: ""
   common:
     nonceTemplate: ""
     tosUrl: ""

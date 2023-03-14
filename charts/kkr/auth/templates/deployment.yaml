@@ -80,7 +80,7 @@ spec:
                 secretKeyRef:
                   key: secret-key
                   name: {{ include "auth.fullname" . }}-oauth
-            - name: RESET_PIN_JWP_EXP
+            - name: RESET_PIN_JWT_EXP
               valueFrom:
                 secretKeyRef:
                   key: reset-pin-jwp-exp
@@ -105,15 +105,15 @@ spec:
                 configMapKeyRef:
                   key: new-account-report-queue-url
                   name: {{ include "auth.fullname" . }}-aws
-            - name: WALLET_NOTIFICATION_QUEUE_NAME
+            - name: AWS_WALLET_CREATE_NOTIFICATION_QUEUE_NAME
               valueFrom:
                 configMapKeyRef:
-                  key: wallet-notification-queue-name
+                  key: wallet-create-notification-queue-name
                   name: {{ include "auth.fullname" . }}-aws
-            - name: WALLET_NOTIFICATION_QUEUE_URL
+            - name: AWS_WALLET_CREATE_NOTIFICATION_QUEUE_URL
               valueFrom:
                 configMapKeyRef:
-                  key: wallet-notification-queue-url
+                  key: wallet-create-notification-queue-url
                   name: {{ include "auth.fullname" . }}-aws
             - name: NONCE_TEMPLATE
               valueFrom:
