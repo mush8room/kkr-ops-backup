@@ -413,19 +413,19 @@ spec:
                 configMapKeyRef:
                   key: wallet-backend-base-url
                   name: {{ include "auth.fullname" . }}-common
-          ports:
-            - name: http
-              containerPort: 5000
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-          resources:
+                    #ports:
+                    #  - name: http
+                    #    containerPort: 5000
+                    #    protocol: TCP
+                    #livenessProbe:
+                    #  httpGet:
+                    #    path: /
+                    #    port: http
+                    #readinessProbe:
+                    #  httpGet:
+                    #    path: /
+                    #    port: http
+                    #resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
