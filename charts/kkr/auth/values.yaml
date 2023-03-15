@@ -14,6 +14,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+worker:
+  enabled: false
+
 config:
   aws:
     newAccountReportQueueUrl: ""
