@@ -15,7 +15,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: private-{{ $fullName }}
   labels:
     {{- include "wallet-api.labels" . | nindent 4 }}
   annotations:
