@@ -49,5 +49,12 @@ spec:
                   number: {{ $svcPort }}
             path: /docs
             pathType: ImplementationSpecific
+          - backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+            path: /api/v1/internal
+            pathType: ImplementationSpecific
     {{- end }}
 {{- end }}
