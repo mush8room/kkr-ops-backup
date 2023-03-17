@@ -19,7 +19,7 @@ metadata:
   labels:
     {{- include "wallet-api.labels" . | nindent 4 }}
   annotations:
-    konghq.com/plugins: {{ $fullName }}-cors,{{ $fullName }}-validate-auth-server-token
+    konghq.com/plugins: {{ $fullName }}-cors
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -47,21 +47,7 @@ spec:
                 name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
-            path: /api/v1/wallet
-            pathType: ImplementationSpecific
-          - backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-            path: /api/v1/transaction
-            pathType: ImplementationSpecific
-          - backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-            path: /api/v1/auth
+            path: /docs
             pathType: ImplementationSpecific
     {{- end }}
 {{- end }}
