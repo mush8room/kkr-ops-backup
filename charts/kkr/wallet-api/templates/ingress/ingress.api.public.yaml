@@ -47,7 +47,7 @@ spec:
                 name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
-            path: /api/v1/public/wallet
+            path: /api/v1/public/wallets
             pathType: ImplementationSpecific
           - backend:
               service:
