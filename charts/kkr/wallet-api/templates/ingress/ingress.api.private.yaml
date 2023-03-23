@@ -19,7 +19,7 @@ metadata:
   labels:
     {{- include "wallet-api.labels" . | nindent 4 }}
   annotations:
-    konghq.com/plugins: {{ include "wallet-api.cors" . }},{{ include "wallet-api. validateAuthServerToken" . }}
+    konghq.com/plugins: {{ include "wallet-api.cors" . }},{{ include "wallet-api.validateAuthServerToken" . }}
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
