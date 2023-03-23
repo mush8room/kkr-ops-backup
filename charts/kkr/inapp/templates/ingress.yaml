@@ -1,6 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "auth.fullname" . -}}
-{{- $corsPluginName := printf "%s-%s" $fullName "cors" }}
+{{- $fullName := include "inapp.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
@@ -18,10 +17,9 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "auth.labels" . | nindent 4 }}
-  annotations:
-    konghq.com/plugins: {{ $corsPluginName | quote }}
+    {{- include "inapp.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
@@ -43,36 +41,8 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          - path: "/api"
+          - path: "/"
             pathType: ImplementationSpecific
-            backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-          - path: "/error-page"
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-          - path: "/oauth"
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-          - path: "/static"
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-          - path: "/robots.txt"
-            pathType: Exact
             backend:
               service:
                 name: {{ $fullName }}

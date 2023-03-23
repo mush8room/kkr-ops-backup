@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "payment.name" -}}
+{{- define "inapp.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "payment.fullname" -}}
+{{- define "inapp.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "payment.chart" -}}
+{{- define "inapp.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "payment.labels" -}}
-helm.sh/chart: {{ include "payment.chart" . }}
-{{ include "payment.selectorLabels" . }}
+{{- define "inapp.labels" -}}
+helm.sh/chart: {{ include "inapp.chart" . }}
+{{ include "inapp.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,34 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "payment.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "payment.name" . }}
+{{- define "inapp.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "inapp.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "payment.serviceAccountName" -}}
+{{- define "inapp.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "payment.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "inapp.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
-{{- end }}
-
-{{/*
-Create kongplugin name of cors
-*/}}
-{{- define "payment.cors" -}}
-{{ $fullName := include "payment.fullname" . }}
-{{- printf "%s-%s" $fullName "cors" | trunc 63 }}
-{{- end }}
-
-{{/*
-Create kongplugin name of validate auth server token
-*/}}
-{{- define "payment.validateAuthServerToken" -}}
-{{ $fullName := include "payment.fullname" . }}
-{{- printf "%s-%s" $fullName "validate-auth-server-token" | trunc 63 }}
 {{- end }}
